@@ -30,5 +30,55 @@ const getHumanChoice = function() {
   }
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+let humanScore = 0;
+let computerScore = 0;
+
+const playRound = function(humanChoice, computerChoice) {
+  const human = humanChoice();
+  const computer = computerChoice();
+
+  console.log(`User: ${human}  vs  Computer: ${computer}`)
+
+  if (human == computer) {
+    console.log("DRAW!")
+  }
+
+  if (human == "rock") {
+    if (computer == "paper") {
+      console.log("COMPUTER WINS!")
+      computerScore++;
+    } else if (computer == "scissors") {
+      console.log("USER WINS!")
+      humanScore++;
+    }
+  } else if (human == "paper") {
+    if (computer == "rock") {
+      console.log("USER WINS!")
+      humanScore++;
+    } else if (computer == "scissors") {
+      console.log("COMPUTER WINS!")
+      computerScore++;
+    }
+  } else if (human == "scissors") {
+    if (computer == "paper") {
+      console.log("USER WINS!")
+      humanScore++;
+    } else if (computer == "rock") {
+      console.log("COMPUTER WINS!")
+      computerScore++;
+    } 
+  }
+
+  console.log("Human Score: " + humanScore)
+  console.log("Computer Score: " + computerScore)
+}
+
+for (let index = 0; index < 5; index++) {
+  console.log("#############")
+  console.log(`Round ${index + 1}: `)
+  playRound(getHumanChoice, getComputerChoice);
+  console.log("\n")
+}
+
+// console.log(getHumanChoice());
+// console.log(getComputerChoice());
