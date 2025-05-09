@@ -17,7 +17,18 @@ const getComputerChoice = function() {
   } else {
     return "scissors"
   }
-
 }
 
+const getHumanChoice = function() {
+  const choice = prompt("Enter your choice (r) / (p) / (s):").toLocaleLowerCase();
+  if (choice == "r") {
+    return "rock";
+  } else if (choice == "p") {
+    return "paper";
+  } else {
+    return "scissors"
+  }
+}
+
+console.log(getHumanChoice());
 console.log(getComputerChoice());
